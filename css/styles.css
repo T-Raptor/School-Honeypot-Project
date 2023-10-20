@@ -24,14 +24,14 @@ form label {
 }
 
 form input {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-button {
+button, a.button-style {
     padding: 10px 20px;
     background-color: #3366cc;
     color: #fff;
@@ -40,7 +40,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+button:hover, a.button-style:hover {
     background-color: #003366;
 }
 

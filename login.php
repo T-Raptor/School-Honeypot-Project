@@ -2,11 +2,8 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $servername = "your_db_server";
-    $username = "your_db_username";
-    $password = "your_db_password";
-    $dbname = "your_db_name";
-
+    require_once("config.php");
+    
     $login_email = $_POST['login_email'];
     $login_password = $_POST['login_password'];
 
@@ -22,11 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
         if (password_verify($login_password, $row['password'])) {
-            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['user_id'] = $row['userid'];
+            setcookie('userid', $row['userid']);
             header("Location: challenges.php");
             exit();
         } else {
             echo "Incorrect password. Please try again.";
+            echo $row;
         }
     } else {
         echo "User not found. Please register first.";
