@@ -1,9 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $servername = "your_db_server";
-    $username = "your_db_username";
-    $password = "your_db_password";
-    $dbname = "your_db_name";
+    require_once("config.php");
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -29,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO users (name, email, password, avatar) VALUES ('$name', '$email', '$hashed_password', '$avatar')";
 
     if ($conn->query($sql) === TRUE) {
+        # ? V
         $_SESSION['user_id'] = $conn->insert_id;
         header("Location: challenges.php");
         exit();

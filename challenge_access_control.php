@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $allowed_user_id = 1; // Allow access only for user with ID 1 (for example)
 
-if ($_SESSION['user_id'] != $allowed_user_id) {
+if ($_COOKIE['userid'] != $allowed_user_id) {
     echo "You are not authorized to view this page.";
     echo "<br><a href='challenges.php'>Go back to Challenges</a>";
     exit();
@@ -24,7 +24,7 @@ if ($_SESSION['user_id'] != $allowed_user_id) {
 <body>
     <div class="container">
         <h1>Welcome to the Restricted Page</h1>
-        <p>You are allowed to view this restricted page because you have the authorized user ID: <?php echo $_SESSION['user_id']; ?></p>
+        <p>You are allowed to view this restricted page because you have the authorized user ID: <?php echo $allowed_user_id ?></p>
         <p>This is a restricted area for authorized users only.</p>
         <p><a href="challenges.php">Go back to Challenges</a></p>
     </div>

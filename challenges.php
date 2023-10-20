@@ -24,11 +24,11 @@ $user_name = isset($_SESSION['name']) ? $_SESSION['name'] : 'User';
         <p>Welcome, <?php echo $user_name; ?>!</p>
 
         <h2>Available Challenges</h2>
-        <ul>
+        <ol>
             <li><a href="challenge_sqli.php">SQL Injection Challenge</a></li>
             <li><a href="challenge_xss.php">XSS Challenge</a></li>
             <li><a href="challenge_access_control.php">Broken Access Control Challenge</a></li>
-        </ul>
+        </ol>
 
         <p><a href="logout.php">Logout</a></p>
     </div>
