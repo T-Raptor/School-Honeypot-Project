@@ -28,6 +28,8 @@ $user_name = isset($_SESSION['name']) ? $_SESSION['name'] : 'User';
             <li><a href="challenge_sqli.php">SQL Injection Challenge</a></li>
             <li><a href="challenge_xss.php">XSS Challenge</a></li>
             <li><a href="challenge_access_control.php">Broken Access Control Challenge</a></li>
+            <li><a href="challenge_CSRF.php">CSRF Challenge</a></li>
+            <li><a href="challenge_xss2.php">Challenge 5</a></li>
         </ol>
 
         <p><a href="logout.php">Logout</a></p>
