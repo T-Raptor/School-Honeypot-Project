@@ -19,7 +19,7 @@ if ($_COOKIE['user_id'] != $allowed_user_id) {
 <html>
 <head>
     <title>Restricted Page</title>
-    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../css/challenges.css">
 </head>
 <body>
     <div class="container">
