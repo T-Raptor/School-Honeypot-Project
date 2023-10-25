@@ -25,9 +25,9 @@ $user_name = isset($_SESSION['name']) ? $_SESSION['name'] : 'User';
 
         <h2>Available Challenges</h2>
         <ol>
-            <li><a href="challenge_sqli.php">SQL Injection Challenge</a></li>
-            <li><a href="challenge_xss.php">XSS Challenge</a></li>
-            <li><a href="challenge_access_control.php">Broken Access Control Challenge</a></li>
+            <li><a href="challenges/challenge_sqli.php">SQL Injection Challenge</a></li>
+            <li><a href="challenges/challenge_xss.php">XSS Challenge</a></li>
+            <li><a href="challenges/challenge_access_control.php">Broken Access Control Challenge</a></li>
         </ol>
 
         <p><a href="logout.php">Logout</a></p>

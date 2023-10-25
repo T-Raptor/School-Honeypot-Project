@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>XSS Challenge</title>
-    <link rel="stylesheet" type="text/css" href="css/challenges.css">
+    <link rel="stylesheet" type="text/css" href="../css/challenges.css">
 </head>
 <body>
     <h1>XSS Challenge</h1>
@@ -15,6 +15,7 @@
         <textarea name="comment" rows="4" cols="50"></textarea><br>
         <button type="submit">Post Comment</button>
     </form>
+    <a href="../challenges.php" class="button-style">Go back to Challenges</a>
 
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
