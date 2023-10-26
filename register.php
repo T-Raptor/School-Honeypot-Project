@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require_once("config.php");
+    require_once("/util/config.php");
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 

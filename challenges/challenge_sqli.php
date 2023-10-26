@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>SQL Injection Challenge</title>
-    <link rel="stylesheet" type="text/css" href="../css/challenges.css">
+    <link rel="stylesheet" type="text/css" href="/css/challenges.css">
 </head>
 <body>
     <h1>SQL Injection Challenge</h1>
@@ -14,11 +14,11 @@
         <input type="text" id="id" name="id" placeholder="e.g., 1" required><br>
         <button type="submit">Retrieve User Info</button>
     </form>
-    <a href="../challenges.php" class="button-style">Go back to Challenges</a>
+    <a href="/challenges.php" class="button-style">Go back to Challenges</a>
 
     <?php
     if (isset($_GET['id'])) {
-        require_once("config.php");
+        require_once("/util/config.php");
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 

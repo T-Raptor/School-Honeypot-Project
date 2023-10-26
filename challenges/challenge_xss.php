@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>XSS Challenge</title>
-    <link rel="stylesheet" type="text/css" href="../css/challenges.css">
+    <link rel="stylesheet" type="text/css" href="/css/challenges.css">
 </head>
 <body>
     <h1>XSS Challenge</h1>
@@ -24,6 +24,6 @@
     ?>
     </div>
 
-    <a href="../challenges.php" class="button-style" style="margin-top: 3rem;">Go back to Challenges</a>
+    <a href="/challenges.php" class="button-style" style="margin-top: 3rem;">Go back to Challenges</a>
 </body>
 </html>
