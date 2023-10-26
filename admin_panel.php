@@ -90,6 +90,12 @@ $result = $conn->query($sql);
             $firstRow = false;
         }
 
+        echo "<tr>
+                <td colspan='100%' style='text-align: center; padding: 2rem; border: none;'>
+                    <a href='challenges.php'>Go back to Challenges</a>
+                </td>
+            </tr>";
+
         echo "</table>";
     } else {
         echo "No registered users found";
