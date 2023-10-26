@@ -15,12 +15,15 @@
         <textarea name="comment" rows="4" cols="50"></textarea><br>
         <button type="submit">Post Comment</button>
     </form>
-    <a href="../challenges.php" class="button-style">Go back to Challenges</a>
 
+    <div style="height: 3rem;">
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<p><strong>Comment:</strong> " . htmlspecialchars($_POST['comment']) . "</p>";
     }
     ?>
+    </div>
+
+    <a href="../challenges.php" class="button-style" style="margin-top: 3rem;">Go back to Challenges</a>
 </body>
 </html>

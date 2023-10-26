@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once("config.php");
 
@@ -8,8 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $name = $_POST['name'];
-    $email = $_POST['email'];
+    $name = strip_tags($_POST['name']);
+    $email = strip_tags($_POST['email']);
     $password = $_POST['password'];
 
     // Hash the password for storage
@@ -28,6 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn->query($sql) === TRUE) {
         # ? V
         $_SESSION['user_id'] = $conn->insert_id;
+        setcookie('user_id',$_SESSION['user_id']);
+
+        $_SESSION['name'] = ucwords(strtolower($name));
+
         header("Location: challenges.php");
         exit();
     } else {

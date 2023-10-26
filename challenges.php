@@ -28,19 +28,11 @@ $is_admin = isset($_SESSION['user_id']) && $_SESSION['user_id'] == 1;
 
         <h2>Available Challenges</h2>
         <ol>
-<<<<<<< challenges.php
-            <li><a href="challenge_sqli.php">SQL Injection Challenge</a></li>
-            <li><a href="challenge_xss.php">XSS Challenge</a></li>
-            <li><a href="challenge_access_control.php">Broken Access Control Challenge</a></li>
-            <li><a href="challenge_CSRF.php">CSRF Challenge</a></li>
-            <li><a href="challenge_xss2.php">Challenge 5</a></li>
-=======
             <li><a href="challenges/challenge_sqli.php">SQL Injection Challenge</a></li>
             <li><a href="challenges/challenge_xss.php">XSS Challenge</a></li>
             <li><a href="challenges/challenge_access_control.php">Broken Access Control Challenge</a></li>
             <li><a href="challenges/challenge_CSRF.php">CSRF Challenge</a></li>
             <li><a href="challenges/challenge_xss2.php">Challenge 5</a></li>
->>>>>>> challenges.php
         </ol>
 
         <?php if ($is_admin): ?>

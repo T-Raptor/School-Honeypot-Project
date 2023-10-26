@@ -2,17 +2,16 @@
 <html>
 <head>
     <title>CSRF Attack Page</title>
+    <link rel="stylesheet" type="text/css" href="../css/challenges.css">
 </head>
 <body>
     <h1>CSRF Attack Page</h1>
 
-    <form action="challenges_CSRF.php" method="post">
+    <form action="challenge_CSRF.php" method="post">
         <input type="hidden" name="action" value="transfer">
         <input type="hidden" name="amount" value="9999">
-        <input type="submit" value="Transfer $9999">
+        <button type="submit">Transfer $9999</button>
     </form>
-</body>
-</html>
 <?php
 session_start();
 
@@ -35,3 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "Invalid request method.";
 }
 ?>
+<br><br><br>
+<a href="../challenges.php" class="button-style">Go back to Challenges</a>
+</body>
+</html>
