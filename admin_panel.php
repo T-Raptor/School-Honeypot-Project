@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != 1) {
     exit();
 }
 
-require_once("config.php");
+require_once("/util/config.php");
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

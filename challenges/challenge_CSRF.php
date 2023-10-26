@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>CSRF Attack Page</title>
-    <link rel="stylesheet" type="text/css" href="../css/challenges.css">
+    <link rel="stylesheet" type="text/css" href="/css/challenges.css">
 </head>
 <body>
     <h1>CSRF Attack Page</h1>
@@ -35,6 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <br><br><br>
-<a href="../challenges.php" class="button-style">Go back to Challenges</a>
+<a href="/challenges.php" class="button-style">Go back to Challenges</a>
 </body>
 </html>
