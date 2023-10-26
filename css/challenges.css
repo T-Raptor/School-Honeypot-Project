@@ -27,16 +27,26 @@ input, textarea {
     margin-bottom: 10px;
 }
 
-button {
+button, a.button-style {
     padding: 10px 20px;
-    background-color: #008CBA;
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9rem;
 }
 
-button:hover {
-    background-color: #005F6B;
+button:hover, a.button-style:hover {
+    filter: brightness(85%);
+}
+
+button {
+    background-color: #008CBA;
+}
+
+a.button-style {
+    background-color: #005030;
+    text-decoration: none;
 }
 
 ul {

@@ -19,8 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
         if (password_verify($login_password, $row['password'])) {
-            $_SESSION['user_id'] = $row['userid'];
-            setcookie('userid', $row['userid']);
+            $_SESSION['user_id'] = $row['user_id'];
+            $_SESSION['name'] = ucwords(strtolower($row['name']));
+            setcookie('user_id', $row['user_id']);
             header("Location: challenges.php");
             exit();
         } else {
@@ -33,4 +34,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn->close();
 }
+
 ?>
