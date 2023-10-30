@@ -2,7 +2,8 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require_once("/util/config.php");
+    $rootdir = realpath($_SERVER["DOCUMENT_ROOT"]);
+    require_once("$rootdir/util/config.php");
     
     $login_email = $_POST['login_email'];
     $login_password = $_POST['login_password'];

@@ -18,7 +18,8 @@
 
     <?php
     if (isset($_GET['id'])) {
-        require_once("/util/config.php");
+        $rootdir = realpath($_SERVER["DOCUMENT_ROOT"]);
+        require_once("$rootdir/util/config.php");
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 

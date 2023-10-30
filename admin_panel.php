@@ -7,7 +7,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != 1) {
     exit();
 }
 
-require_once("/util/config.php");
+$rootdir = realpath($_SERVER["DOCUMENT_ROOT"]);
+require_once("$rootdir/util/config.php");
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -80,8 +81,8 @@ $result = $conn->query($sql);
                     <td class='actions_column'>";
             
             if (!$firstRow) {
-                echo "<a href='edit_user.php?id=".$row["user_id"]."'>Edit</a> |
-                      <a href='delete_user.php?id=".$row["user_id"]."'>Delete</a>";
+                echo "<a href='/admin_actions/edit_user.php?id=".$row["user_id"]."'>Edit</a> |
+                      <a href='/admin_actions/delete_user.php?id=".$row["user_id"]."'>Delete</a>";
             }
             
             echo "</td>

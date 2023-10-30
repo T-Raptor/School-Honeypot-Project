@@ -2,7 +2,8 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require_once("/util/config.php");
+    $rootdir = realpath($_SERVER["DOCUMENT_ROOT"]);
+    require_once("$rootdir/util/config.php");
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
