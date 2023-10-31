@@ -14,12 +14,11 @@
         <input type="text" id="id" name="id" placeholder="e.g., 1" required><br>
         <button type="submit">Retrieve User Info</button>
     </form>
-    <a href="/challenges.php" class="button-style">Go back to Challenges</a>
 
+    <p style='height: 2rem;'>
     <?php
     if (isset($_GET['id'])) {
-        $rootdir = realpath($_SERVER["DOCUMENT_ROOT"]);
-        require_once("$rootdir/util/config.php");
+        require_once("../util/config.php");
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -30,14 +29,14 @@
         $id = $_GET['id'];
 
         // Use prepared statements to prevent SQL injection
-        $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
+        $stmt = $conn->prepare("SELECT * FROM users WHERE user_id = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                echo "ID: " . $row["id"] . ", Name: " . $row["name"] . ", Email: " . $row["email"] . "<br>";
+                echo "ID: " . $row["user_id"] . ", Name: " . $row["name"] . ", Email: " . $row["email"];
             }
         } else {
             echo "No results";
@@ -47,5 +46,8 @@
         $conn->close();
     }
     ?>
+    </p>
+
+    <a href="/challenges.php" class="button-style" style="margin-top: 3rem;">Go back to Challenges</a>
 </body>
 </html>
