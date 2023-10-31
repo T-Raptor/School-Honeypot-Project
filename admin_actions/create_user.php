@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require_once("util/config.php");
+    require_once("../util/admin_config.php");
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -28,13 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO users (name, email, password, avatar) VALUES ('$name', '$email', '$hashed_password', '$avatar')";
 
     if ($conn->query($sql) === TRUE) {
-        # ? V
-        $_SESSION['user_id'] = $conn->insert_id;
-        setcookie('user_id',$_SESSION['user_id']);
-
-        $_SESSION['name'] = ucwords(strtolower($name));
-
-        header("Location: challenges.php");
+        // Refresh the page
+        header("Location: ../admin_panel.php");
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;

@@ -34,21 +34,27 @@ form input {
 button, a.button-style {
     padding: 10px 20px;
     background-color: #3366cc;
-    color: #fff;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 0.9rem;
 }
 
 button:hover, a.button-style:hover {
-    background-color: #003366;
+    filter: brightness(85%);
+}
+
+button {
+    background-color: #008CBA;
+}
+
+a.button-style {
+    background-color: #306090;
+    text-decoration: none;
 }
 
 a {
+    color: #306090;
     text-decoration: none;
-    color: #3366cc;
-}
-
-a:hover {
-    color: #003366;
 }
