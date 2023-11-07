@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT * FROM users WHERE email='$login_email'";
+    $sql = "SELECT * FROM users_list WHERE email='$login_email'";
     $result = $conn->query($sql);
 
     if ($result->num_rows == 1) {
