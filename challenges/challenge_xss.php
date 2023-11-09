@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>XSS Challenge</title>
-    <link rel="stylesheet" type="text/css" href="/css/challenges.css">
+    <title>XSS Example</title>
+<link rel="stylesheet" type="text/css" href="/css/challenges.css">
 </head>
 <body>
-    <h1>XSS Challenge</h1>
-    <p>
-        Welcome! This page allows you to post comments. Try to inject a script that will execute when the comment is displayed.
-    </p>
-
-    <h2>Post a comment:</h2>
-    <form action="#" method="post">
-        <textarea name="comment" rows="4" cols="50"></textarea><br>
-        <button type="submit">Post Comment</button>
+    <h1>Search Engine</h1>
+    <form method="GET">
+        <input type="text" name="query" placeholder="Search...">
+        <input type="submit" value="Search">
     </form>
-
-    <div style="height: 3rem;">
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        echo "<p><strong>Comment:</strong> " . htmlspecialchars($_POST['comment']) . "</p>";
-    }
-    ?>
+    <div>
+        <?php
+        if (isset($_GET['query'])) {
+            $query = $_GET['query'];
+            echo "<p>Search results for '$query':</p>";
+            echo "<ul>";
+            // Vulnerable code: $query is echoed without proper escaping
+            echo "<li>Result 1: $query</li>";
+            echo "<li>Result 2: Some other result</li>";
+            echo "</ul>";
+        }
+        ?>
     </div>
 
     <a href="/challenges.php" class="button-style" style="margin-top: 3rem;">Go back to Challenges</a>
 </body>
 </html>
+
