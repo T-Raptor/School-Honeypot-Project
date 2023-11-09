@@ -31,8 +31,8 @@ $is_admin = isset($_SESSION['user_id']) && $_SESSION['user_id'] == 1;
             <li><a href="challenges/challenge_sqli.php">CHALLENGE 1</a></li>
             <li><a href="challenges/challenge_xss.php">CHALLANGE 2</a></li>
             <li><a href="challenges/challenge_access_control.php">CHALLENGE 3</a></li>
-            <li><a href="challenges/challenge_CSRF.php">CSRF Challenge</a></li>
-            <li><a href="challenges/challenge_xss2.php">Challenge 5</a></li>
+            <li><a href="challenges/challenge_CSRF.php">CHALLENGE 4</a></li>
+            <li><a href="challenges/challenge_xss2.php">CHALLENGE 5</a></li>
         </ol>
 
         <?php if ($is_admin): ?>
