@@ -9,6 +9,7 @@
     <label for="id">Enter User ID:</label>
     <input type="text" id="id" name="id" placeholder="e.g., 1" required><br>
     <button type="submit">Retrieve User Info</button>
+    <a href="/challenges.php" class="button-style" style="margin-top: 3rem;">Go back to Challenges</a>
 </form>
 
 <?php
@@ -44,6 +45,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 // Close the connection
 mysqli_close($conn);
 ?>
-<a href="/challenges.php" class="button-style" style="margin-top: 3rem;">Go back to Challenges</a>
+
 </body>
 </html>
