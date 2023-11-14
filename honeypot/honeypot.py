@@ -13,17 +13,43 @@ def start_honeypot():
             client_socket, addr = server_socket.accept()
             print(f"Connection from: {addr}")
 
-            # Simulate a basic login form
-            client_socket.send(b"Welcome to the login page. Please enter your credentials.\n")
-            username = client_socket.recv(1024).strip().decode()
-            password = client_socket.recv(1024).strip().decode()
+            response_headers = [
+                'HTTP/1.0 200 OK',
+                'Content-Type: text/html',
+            ]
 
-            # Log the connection and login attempt
+            html_content = [
+                '<html lang="en">',
+                '  <head>',
+                '    <meta charset="UTF-8">',
+                '    <title>Honeypot Server Control</title>',
+                '    <style>body { font-family: monospace; }</style>',
+                '  </head>',
+                '  <body>',
+                '    <h2>Welcome to the access panel admin.</h2>',
+                '    <h3>Please login:</h3>',
+                '    <form method="POST" action="/login">',
+                '      <label for="uname"><b>Username</b></label>',
+                '      <input type="text" placeholder="Enter Username" name="uname" required>',
+                '      <label for="psw"><b>Password</b></label>',
+                '      <input type="password" placeholder="Enter Password" name="psw" required>',
+                '      <button type="submit">Login</button>',
+                '    </form>',
+                '  </body>',
+                '</html>'
+            ]
+
+            response_headers = '\r\n'.join(response_headers)
+            html_content = '\r\n'.join(html_content)
+
+            response = response_headers + '\r\n\r\n' + html_content
+            client_socket.send(response.encode())
+
+            # Log the connection
             with open('honeypot.log', 'a') as log_file:
-                log_file.write(f"Connection from {addr}, Username: {username}, Password: {password}\n")
+                log_file.write(f"Connection from {addr}\n")
 
-            client_socket.send(b"Login failed. Please try again.\n")
-            client_socket.close()
+            #client_socket.close()
 
 if __name__ == "__main__":
     start_honeypot()
