@@ -7,6 +7,8 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
+$avatar = isset($_SESSION['avatar']) ? $_SESSION['avatar'] : 'https://shorturl.at/fkJM9';
+
 // Assuming you have a 'name' key in the $_SESSION array
 $user_name = isset($_SESSION['name']) ? $_SESSION['name'] : 'User';
 
@@ -23,8 +25,13 @@ $is_admin = isset($_SESSION['user_id']) && $_SESSION['user_id'] == 1;
 </head>
 <body>
     <div class="container">
-        <h1>Challenges</h1>
-        <p>Welcome, <?php echo $user_name; ?>!</p>
+        <div style="display: flex; justify-content: space-between;">
+            <div>
+                <h1>Challenges</h1>
+                <p>Welcome, <?php echo $user_name; ?>!</p>
+            </div>
+            <img src="<?php echo $avatar ?>" alt="avatar" style="width: 5rem; height: 5rem; border-radius: 30%;">
+        </div>
 
         <h2>Available Challenges</h2>
         <ol>

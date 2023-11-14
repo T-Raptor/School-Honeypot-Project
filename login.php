@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($login_password, $row['password'])) {
             $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['name'] = ucwords(strtolower($row['name']));
+            $_SESSION['avatar'] = $row['avatar'];
             setcookie('user_id', $_SESSION['user_id']);
             header("Location: challenges.php");
             exit();
