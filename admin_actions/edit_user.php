@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <th>User ID</th>
                     <th><label for="name">Name</label></th>
                     <th><label for="email">Email</label></th>
-                    <th><label for="avatar">Avatar</label</th>
+                    <!--<th><label for="avatar">Avatar</label</th>-->
                     <th><label for="password">Password</label></th>
                 </tr>
         </thead>
@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <td><input type='text' name='id' value='" . $_GET['id'] . "' readonly></td>
                         <td><input form='editForm' type='text' id='name' name='name' required value='" . $row["name"] . "'></td>
                         <td><input form='editForm' type='email' id='email' name='email' required value='" . $row["email"] . "'></td>
-                        <td><input form='editForm' type='file' id='avatar' name='avatar'></td>
+                        <!--<td><input form='editForm' type='file' id='avatar' name='avatar'></td>-->
                         <td><input form='editForm' type='password' id='password' name='password' required></td>
                     </tr>";
                 $firstRow = false;
