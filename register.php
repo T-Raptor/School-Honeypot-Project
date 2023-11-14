@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         setcookie('user_id',$_SESSION['user_id']);
 
         $_SESSION['name'] = ucwords(strtolower($name));
-        $_SESSION['avatar'] = $row['avatar'];
+        $_SESSION['avatar'] = $avatar;
 
         header("Location: challenges.php");
         exit();
