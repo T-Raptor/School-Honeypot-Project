@@ -17,12 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Hash the password for storage
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Upload avatar
+    // Save avatar url
     $avatar = null;
-    if ($_FILES['avatar']['size'] > 0) {
-        $target_dir = "avatars/";
-        $avatar = $target_dir . basename($_FILES['avatar']['name']);
-        move_uploaded_file($_FILES['avatar']['tmp_name'], $avatar);
+    if (isset($_POST['img_url'])) {
+        $avatar = $_POST['img_url'];
     }
 
     $sql = "INSERT INTO users (name, email, password, avatar) VALUES ('$name', '$email', '$hashed_password', '$avatar')";
@@ -33,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         setcookie('user_id',$_SESSION['user_id']);
 
         $_SESSION['name'] = ucwords(strtolower($name));
+        $_SESSION['avatar'] = $row['avatar'];
 
         header("Location: challenges.php");
         exit();

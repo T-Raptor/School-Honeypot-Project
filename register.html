@@ -7,7 +7,7 @@
 <body>
     <div class="container">
         <h1>User Registration</h1>
-        <form action="register.php" method="post" enctype="multipart/form-data">
+        <form action="register.php" method="post" id="registrationForm" enctype="multipart/form-data">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br>
 
@@ -20,11 +20,16 @@
             <label for="avatar">Avatar:</label>
             <input type="file" id="avatar" name="avatar"><br>
 
-            <button type="submit">Register</button>
+            <!-- Hidden input to store ImgBB URL -->
+            <input type="hidden" id="img_url" name="img_url">
+
+            <button type="button" id="registerButton">Register</button>
         </form>
 
         <p>Already have an account? <a href="login.html">Login here</a>.</p>
         <p><a href="index.html">Back to Home</a></p>
     </div>
+
+    <script src="util/resizeAndUploadAvatar.js"></script>
 </body>
 </html>
