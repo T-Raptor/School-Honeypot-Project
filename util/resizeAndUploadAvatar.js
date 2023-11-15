@@ -10,6 +10,10 @@ function isValidImageSize(file) {
     return file.size <= maxSizeInBytes;
 }
 
+function emailIsValid(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 function resizeImage(img, width, height, quality) {
     return new Promise((resolve) => {
         const canvas = document.createElement('canvas');
@@ -47,7 +51,12 @@ function resizeAndUploadImage() {
 
     const file = fileInput.files[0];
 
-    if (!file) { return; }
+    if (!emailIsValid(emailInput.value)) {
+        alert('Invalid email address.');
+        return;
+    }
+
+    if (!file) { document.querySelector('#registrationForm').submit(); }
 
     // Validate image type
     if (!isValidImageType(file)) {
@@ -96,5 +105,4 @@ function resizeAndUploadImage() {
     };
 }
 
-//document.querySelector('button[type="submit"]').addEventListener('click', resizeAndUploadImage);
 document.querySelector('#registerButton').addEventListener('click', resizeAndUploadImage);
