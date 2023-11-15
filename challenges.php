@@ -18,7 +18,7 @@ $is_admin = isset($_SESSION['user_id']) && $_SESSION['user_id'] == 1;
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Challenges</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -43,7 +43,9 @@ $is_admin = isset($_SESSION['user_id']) && $_SESSION['user_id'] == 1;
         </ol>
 
         <?php if ($is_admin): ?>
-            <button style="background-color: darkred;"><a href="admin_panel.php" style="color: white;">Admin Panel</a></button>
+            <button style="background-color: darkred;">
+                <a href="admin_panel.php" style="color: white;">Admin Panel</a>
+            </button>
         <?php endif; ?>
 
         <p><a href="logout.php">Logout</a></p>

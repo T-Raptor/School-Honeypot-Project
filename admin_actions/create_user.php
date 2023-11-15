@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require_once("../util/admin_config.php");
+    require_once "../util/admin_config.php";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -25,9 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         move_uploaded_file($_FILES['avatar']['tmp_name'], $avatar);
     }
 
-    $sql = "INSERT INTO users_list (name, email, password, avatar) VALUES ('$name', '$email', '$hashed_password', '$avatar')";
+    $sql = "INSERT INTO users_list (name, email, password, avatar)
+        VALUES ('$name', '$email', '$hashed_password', '$avatar')";
 
-    if ($conn->query($sql) === TRUE) {
+    if ($conn->query($sql) === true) {
         // Refresh the page
         header("Location: ../admin_panel.php");
         exit();
@@ -37,4 +38,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn->close();
 }
-?>

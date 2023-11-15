@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != 1) {
     exit();
 }
 
-require_once("../util/admin_config.php");
+require_once "../util/admin_config.php";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -41,9 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         move_uploaded_file($_FILES['avatar']['tmp_name'], $avatar);
     }
 
-    $sql = "UPDATE users_list SET name = '$name', email = '$email', password = '$hashed_password', avatar = '$avatar' WHERE user_id = " . $_POST['id'];
+    $sql = "UPDATE users_list SET name = '$name', email = '$email', password = '$hashed_password', avatar = '$avatar'
+        WHERE user_id = " . $_POST['id'];
 
-    if ($conn->query($sql) === TRUE) {
+    if ($conn->query($sql) === true) {
         header("Location: ../admin_panel.php");
         exit();
     } else {
@@ -81,6 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <table>
+        <caption><h1>Edit user info</h1></caption>
         <thead>
             <form id="editForm" action="edit_user.php" method="post" enctype="multipart/form-data">
                 <tr>

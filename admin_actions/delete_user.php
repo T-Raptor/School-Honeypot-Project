@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != 1) {
     exit();
 }
 
-require_once("../util/admin_config.php");
+require_once "../util/admin_config.php";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 $stmt = $conn->prepare("DELETE FROM users_list WHERE user_id = ?");
 $stmt->bind_param("i", $_GET['id']);
 
-if ($stmt->execute() === TRUE) {
+if ($stmt->execute() === true) {
     echo "<script type='text/javascript'>
             alert('User " . $_GET["id"] . " deleted successfully');
             location='../admin_panel.php';
@@ -28,4 +28,3 @@ if ($stmt->execute() === TRUE) {
 }
 
 $stmt->close();
-?>

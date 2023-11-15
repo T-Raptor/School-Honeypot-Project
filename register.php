@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require_once("util/config.php");
+    require_once "util/config.php";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -35,9 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $avatar = $_POST['img_url'];
     }
 
-    $sql = "INSERT INTO users_list (name, email, password, avatar) VALUES ('$name', '$email', '$hashed_password', '$avatar')";
+    $sql = "INSERT INTO users_list (name, email, password, avatar)
+        VALUES ('$name', '$email', '$hashed_password', '$avatar')";
 
-    if ($conn->query($sql) === TRUE) {
+    if ($conn->query($sql) === true) {
         # ? V
         $_SESSION['user_id'] = $conn->insert_id;
         setcookie('user_id',$_SESSION['user_id']);
@@ -53,4 +54,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn->close();
 }
-?>

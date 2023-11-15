@@ -5,4 +5,3 @@ $password = "tryandsee";
 $dbname = "sql_database";
 
 $rootdir =  $_SERVER['DOCUMENT_ROOT'];
-?>
