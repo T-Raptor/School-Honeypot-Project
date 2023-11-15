@@ -11,7 +11,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $name = strip_tags($_POST['name']);
+
     $email = strip_tags($_POST['email']);
+    // Alert if email already exists
+    $sql = "SELECT * FROM users_list WHERE email = '$email'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        echo "<script>
+                alert('Please choose a different email!');
+                window.location.replace('https://honeypot/register.html');
+            </script>";
+        exit();
+    }
+
     $password = $_POST['password'];
 
     // Hash the password for storage
