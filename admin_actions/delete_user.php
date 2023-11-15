@@ -14,7 +14,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$stmt = $conn->prepare("DELETE FROM users WHERE user_id = ?");
+$stmt = $conn->prepare("DELETE FROM users_list WHERE user_id = ?");
 $stmt->bind_param("i", $_GET['id']);
 
 if ($stmt->execute() === TRUE) {

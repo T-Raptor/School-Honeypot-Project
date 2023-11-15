@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         move_uploaded_file($_FILES['avatar']['tmp_name'], $avatar);
     }
 
-    $sql = "INSERT INTO users (name, email, password, avatar) VALUES ('$name', '$email', '$hashed_password', '$avatar')";
+    $sql = "INSERT INTO users_list (name, email, password, avatar) VALUES ('$name', '$email', '$hashed_password', '$avatar')";
 
     if ($conn->query($sql) === TRUE) {
         // Refresh the page
