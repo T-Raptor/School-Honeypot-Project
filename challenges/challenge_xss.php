@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>XSS Example</title>
 <link rel="stylesheet" type="text/css" href="/css/challenges.css">

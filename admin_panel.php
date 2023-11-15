@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != 1) {
     exit();
 }
 
-require_once("util/admin_config.php");
+require_once "util/admin_config.php";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -20,8 +20,7 @@ $result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <title>Admin Panel</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -53,6 +52,7 @@ $result = $conn->query($sql);
 
 <body>
     <table>
+        <caption><h1>User overview</h1></caption>
         <thead>
             <tr>
                 <th>User ID</th>
@@ -95,7 +95,9 @@ $result = $conn->query($sql);
             $conn->close();
             ?>
             <tr>
-                <td colspan="100%" style="text-align: center; padding-top: 1rem; padding-bottom: 0; border: none;"><h2>Create user:</h2></td>
+                <td colspan="100%" style="text-align: center; padding-top: 1rem; padding-bottom: 0; border: none;">
+                    <h2>Create user:</h2>
+                </td>
             </tr>
             <form id="createForm" action="admin_actions/create_user.php" method="post" enctype="multipart/form-data">
                 <tr>
@@ -111,7 +113,9 @@ $result = $conn->query($sql);
                     <td><input form="createForm" type="password" id="password" name="password" required></td>
                 </tr>
                 <tr>
-                    <td colspan="100%" style="text-align: center; padding-top: 1rem; padding-bottom: 0; border: none;"><button form="createForm" type="submit">Register</button></td>
+                    <td colspan="100%" style="text-align: center; padding-top: 1rem; padding-bottom: 0; border: none;">
+                        <button form="createForm" type="submit">Register</button>
+                    </td>
                 </tr>
             </form>
 
@@ -123,5 +127,4 @@ $result = $conn->query($sql);
         </tbody>
     </table>
 </body>
-
 </html>

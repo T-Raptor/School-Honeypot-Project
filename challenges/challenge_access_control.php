@@ -16,7 +16,7 @@ if ($_COOKIE['user_id'] != $allowed_user_id) {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Restricted Page</title>
     <link rel="stylesheet" type="text/css" href="/css/challenges.css">
@@ -24,7 +24,8 @@ if ($_COOKIE['user_id'] != $allowed_user_id) {
 <body>
     <div class="container">
         <h1>Welcome to the Restricted Page</h1>
-        <p>You are allowed to view this restricted page because you have the authorized user ID: <?php echo $allowed_user_id ?></p>
+        <p>You are allowed to view this restricted page because you have the authorized user ID:
+            <?php echo $allowed_user_id ?></p>
         <p>This is a restricted area for authorized users only.</p>
         <a href="/challenges.php" class="button-style">Go back to Challenges</a>
     </div>
