@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$avatar = isset($_SESSION['avatar']) ? $_SESSION['avatar'] : 'https://shorturl.at/fkJM9';
+$avatar = ($_SESSION['avatar'] != null) ? $_SESSION['avatar'] : 'https://shorturl.at/fkJM9';
 
 // Assuming you have a 'name' key in the $_SESSION array
 $user_name = isset($_SESSION['name']) ? $_SESSION['name'] : 'User';
