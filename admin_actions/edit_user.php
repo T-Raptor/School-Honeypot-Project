@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 
 if (isset($_GET['id'])) {
     // Get user data
-    $sql = "SELECT * FROM users WHERE user_id = " . $_GET['id'];
+    $sql = "SELECT * FROM users_list WHERE user_id = " . $_GET['id'];
     $result = $conn->query($sql);
 }
 else {
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         move_uploaded_file($_FILES['avatar']['tmp_name'], $avatar);
     }
 
-    $sql = "UPDATE users SET name = '$name', email = '$email', password = '$hashed_password', avatar = '$avatar' WHERE user_id = " . $_POST['id'];
+    $sql = "UPDATE users_list SET name = '$name', email = '$email', password = '$hashed_password', avatar = '$avatar' WHERE user_id = " . $_POST['id'];
 
     if ($conn->query($sql) === TRUE) {
         header("Location: ../admin_panel.php");
