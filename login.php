@@ -1,4 +1,9 @@
 <?php
+session_set_cookie_params([
+    'secure' => true,     // Set the cookie to be sent over secure (HTTPS) connections only
+    'httponly' => true,   // Make the cookie accessible only through the HTTP protocol
+]);
+
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
