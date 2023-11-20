@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6cc; /* A light peach color */
+            color: #333;
+            text-align: center;
+            margin: 100px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #dc3545; /* A deep red color */
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 50px;
+            border-radius: 10px; /* Rounded corners for the image */
+        }
+    </style>
+    <title>404 Not Found</title>
+</head>
+<body>
+    <h1>Oops! The Page Couldn't Be Found.</h1>
+    <p>We're sorry, but the page you're looking for seems to be missing. Don't worry, our team is on it!</p>
+    <img src="https://unsplash.com/photos/close-up-photography-of-train-railway-dSBJv66Yjlk" alt="Custom Image">
+</body>
+</html>
