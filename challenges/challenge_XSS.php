@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>XSS Example</title>
-<link rel="stylesheet" type="text/css" href="/css/challenges.css">
+    <link rel="stylesheet" type="text/css" href="/css/challenges.css">
 </head>
 <body>
     <h1>Search Engine</h1>
