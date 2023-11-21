@@ -65,7 +65,7 @@ a.button-style {
 }
 
 p:has(.button-style) {
-    margin: 0.75rem 0;
+    margin: 1.5rem 0 0.75rem;
 }
 
 a {
@@ -75,19 +75,4 @@ a {
 
 li {
     list-style-type: none;
-}
-
-.challenge-item {
-    background-color: green;
-    padding: 8px; /* Adjust padding as needed */
-    border-radius: 8px; /* Adjust border-radius for rounded corners */
-    margin-bottom: 5px; /* Optional: Add some margin between items */
-}
-
-.challenge-item a {
-    color: white;
-}
-
-.challenge-item:hover {
-    background-color: darkgreen;
 }
