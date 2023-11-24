@@ -1,14 +1,18 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 20px;
 }
 
-h1 {
+h1, h2, h3 {
     color: #333;
 }
 
 p {
     color: #555;
+}
+
+hr {
+    border: 1px solid #ddd;
+    margin: 20px 0;
 }
 
 form {

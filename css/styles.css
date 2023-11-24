@@ -39,6 +39,12 @@ h1 {
     margin-bottom: 15px;
 }
 
+h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
 button, a.button-style {
     padding: 10px 20px;
     background-color: #3366cc;
