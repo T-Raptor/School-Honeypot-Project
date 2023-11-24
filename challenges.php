@@ -6,13 +6,11 @@ session_set_cookie_params([
 
 session_start();
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.html");
-    exit();
-}
-
 require_once "util/config.php";
 require_once "util/challenge_check_config.php";
+require_once "util/login_check.php";
+
+checkIfLoggedIn();
 
 $conn = new mysqli($servername, $chalcheck_username, $chalcheck_password, $dbname);
 
@@ -122,7 +120,7 @@ foreach ($challenges as $challenge) {
             <img src="<?php echo $avatar ?>" alt="avatar">
         </div>
 
-        <div id="challenge-title" style="display: flex;">
+        <div id="challenge-title">
             <h3>Available Challenges</h3>
             <p>Challenges solved: <b>
                 <?php echo htmlspecialchars($solvedChallengesCount, ENT_QUOTES, 'UTF-8') .
