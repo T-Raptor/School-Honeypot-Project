@@ -30,6 +30,7 @@ $user_name = isset($_SESSION['name']) ? $_SESSION['name'] : 'User';
 // Check if logged in user is the admin
 $is_admin = isset($_SESSION['user_id']) && $_SESSION['user_id'] == 1;
 
+$solvedChallengesCount = 0;
 
 // Function to check if a challenge is solved by the user
 function isChallengeSolved($conn, $user_id, $challenge_id) {
@@ -53,6 +54,13 @@ $challenges = [
     ['id' => 4, 'name' => 'CSRF'],
     ['id' => 5, 'name' => 'XSS2']
 ];
+
+$solvedChallengesCount = 0;
+foreach ($challenges as $challenge) {
+    if (isChallengeSolved($conn, $_SESSION['user_id'], $challenge['id'])) {
+        $solvedChallengesCount++;
+    }
+}
 
 ?>
 
@@ -78,7 +86,7 @@ $challenges = [
             background-color: lightgray;
             padding: 0.5rem;
             border-radius: 0.5rem;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.4rem;
             color: black;
         }
 
@@ -94,6 +102,14 @@ $challenges = [
         .solved-challenge:hover {
             background-color: darkgreen;
         }
+
+        #challenge-title {
+            display: flex;
+        }
+
+        #challenge-title * {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -106,7 +122,15 @@ $challenges = [
             <img src="<?php echo $avatar ?>" alt="avatar">
         </div>
 
-        <h3>Available Challenges</h3>
+        <div id="challenge-title" style="display: flex;">
+            <h3>Available Challenges</h3>
+            <p>Challenges solved: <b>
+                <?php echo htmlspecialchars($solvedChallengesCount, ENT_QUOTES, 'UTF-8') .
+                "/" .
+                htmlspecialchars(count($challenges), ENT_QUOTES, 'UTF-8'); ?>
+                </b>
+            </p>
+        </div>
         <ol>
             <?php
             foreach ($challenges as $challenge) {
