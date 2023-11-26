@@ -15,13 +15,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $name = strip_tags($_POST['name']);
+    // Sanitize user input
+    $name = $conn->real_escape_string(strip_tags($_POST['name']));
+    $email = $conn->real_escape_string(strip_tags($_POST['email']));
 
-    $email = strip_tags($_POST['email']);
-    // Alert if email already exists
-    $sql = "SELECT * FROM users_list WHERE email = '$email'";
-    $result = $conn->query($sql);
+    // Use prepared statement to check if email already exists
+    $stmt = $conn->prepare("SELECT * FROM users_list WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
     if ($result->num_rows > 0) {
+        $stmt->close();
+        $conn->close();
         echo "<script>
                 alert('Please choose a different email!');
                 window.location.replace('https://honeypot/register.html');
@@ -31,31 +37,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $password = $_POST['password'];
 
-    // Hash the password for storage
+    // Use password_hash() to securely hash passwords
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Save avatar url
     $avatar = null;
     if (isset($_POST['img_url'])) {
-        $avatar = $_POST['img_url'];
+        $avatar = $conn->real_escape_string($_POST['img_url']);
     }
 
-    $sql = "INSERT INTO users_list (name, email, password, avatar)
-        VALUES ('$name', '$email', '$hashed_password', '$avatar')";
-
-    if ($conn->query($sql) === true) {
-        # ? V
-        $_SESSION['user_id'] = $conn->insert_id;
-        setcookie('user_id',$_SESSION['user_id']);
+    // Use prepared statement to insert user data
+    $stmt = $conn->prepare("INSERT INTO users_list (name, email, password, avatar) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $name, $email, $hashed_password, $avatar);
+    
+    if ($stmt->execute()) {
+        $_SESSION['user_id'] = $stmt->insert_id;
+        setcookie('user_id', $_SESSION['user_id']);
 
         $_SESSION['name'] = ucwords(strtolower($name));
         $_SESSION['avatar'] = $avatar;
 
+        $stmt->close();
+        $conn->close();
+
         header("Location: challenges.php");
         exit();
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $stmt->error;
     }
 
+    $stmt->close();
     $conn->close();
 }
+?>

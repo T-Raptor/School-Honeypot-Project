@@ -7,7 +7,7 @@ session_set_cookie_params([
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require_once "../util/admin_config.php";
+    require_once "/util/admin_config.php";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql) === true) {
         // Refresh the page
-        header("Location: ../admin_panel.php");
+        header("Location: /admin_panel.php");
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;

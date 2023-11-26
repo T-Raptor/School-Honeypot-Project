@@ -1,9 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 20px;
 }
 
-h1 {
+h1, h2, h3 {
     color: #333;
 }
 
@@ -11,9 +10,14 @@ p {
     color: #555;
 }
 
+hr {
+    margin: 20px 0;
+    border: 1px solid #ddd;
+}
+
 form {
-    max-width: 400px;
     margin-bottom: 20px;
+    max-width: 100%;
 }
 
 label {
@@ -25,14 +29,15 @@ input, textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 button, a.button-style {
     padding: 10px 20px;
     color: white;
     border: none;
-    cursor: pointer;
     border-radius: 5px;
+    cursor: pointer;
     font-size: 0.9rem;
 }
 
@@ -45,13 +50,14 @@ button {
 }
 
 a.button-style {
+    color: white;
     background-color: #306090;
     text-decoration: none;
 }
 
 ul {
-    list-style-type: none;
     padding: 0;
+    list-style-type: none;
 }
 
 ul li {
@@ -59,11 +65,27 @@ ul li {
 }
 
 ul li a {
-    text-decoration: none;
     color: #008CBA;
     font-weight: bold;
+    text-decoration: none;
 }
 
 ul li a:hover {
     color: #005F6B;
+}
+
+.challenge-solved {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5rem;
+    padding-left: 3rem;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+
+    background-image: url("https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Partying%20Face.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
 }

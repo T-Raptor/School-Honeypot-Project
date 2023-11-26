@@ -29,30 +29,7 @@ $result = $conn->query($sql);
 <head>
     <title>Admin Panel</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th {
-            text-align: center;
-            padding-bottom: 0.5rem;
-        }
-
-        td {
-            border: 1px solid gray;
-            padding: 0.25rem 0.25rem 0.25rem 0.5rem;
-        }
-
-        .actions_column {
-            text-align: center;
-        }
-
-        .align_content td {
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/admin_panel.css">
 </head>
 
 <body>

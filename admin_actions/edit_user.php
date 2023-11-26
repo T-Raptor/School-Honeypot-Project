@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != 1) {
     exit();
 }
 
-require_once "../util/admin_config.php";
+require_once "/util/admin_config.php";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         WHERE user_id = " . $_POST['id'];
 
     if ($conn->query($sql) === true) {
-        header("Location: ../admin_panel.php");
+        header("Location: /admin_panel.php");
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <title>Edit user</title>
     <style>
         table {
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <th>User ID</th>
                     <th><label for="name">Name</label></th>
                     <th><label for="email">Email</label></th>
-                    <!--<th><label for="avatar">Avatar</label</th>-->
+                    <th><label for="avatar">Avatar</label</th>
                     <th><label for="password">Password</label></th>
                 </tr>
         </thead>
@@ -123,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
             <tr>
                 <td colspan='100%' style='text-align: center; padding-top: 2rem; border: none;'>
-                    <a href='../admin_panel.php' class="button-style">Go back to Admin Panel</a>
+                    <a href='/admin_panel.php' class="button-style">Go back to Admin Panel</a>
                 </td>
             </tr>
         </tbody>
