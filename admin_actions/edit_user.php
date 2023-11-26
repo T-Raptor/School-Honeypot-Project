@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <th>User ID</th>
                     <th><label for="name">Name</label></th>
                     <th><label for="email">Email</label></th>
-                    <!--<th><label for="avatar">Avatar</label</th>-->
+                    <th><label for="avatar">Avatar</label</th>
                     <th><label for="password">Password</label></th>
                 </tr>
         </thead>
