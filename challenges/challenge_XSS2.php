@@ -1,5 +1,7 @@
 <?php
 require_once "../util/login_check.php";
+require_once "../util/save_solved_challenge.php";
+
 checkIfLoggedIn();
 ?>
 
@@ -19,15 +21,21 @@ checkIfLoggedIn();
         <hr>
 
         <?php
-        // Check if the "input" key is set in the $_GET array
         if (isset($_GET['input'])) {
             // Get user input from the query parameter
             $userInput = $_GET['input'];
 
+            // Check if the user input contains any HTML tags
+            $pattern = '/<(script|iframe|img|body|input|link|div|table|style|svg|marquee|object)[^>]*+>/i';
+            if (preg_match($pattern, $userInput)) {
+                echo '<p class="challenge-solved">Congrats on solving this challenge!</p>';
+                saveSolvedChallenge(5);
+            }
+
             // Display the user input without proper escaping (VULNERABLE)
             echo "<p>User Input: $userInput</p>";
         } else {
-            echo "<p>No user input provided.</p>";
+            echo "<p>No input provided.</p>";
         }
         ?>
         <a href="/challenges.php" class="button-style">Go back to Challenges</a>

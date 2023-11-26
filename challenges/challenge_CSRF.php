@@ -7,6 +7,7 @@ session_set_cookie_params([
 session_start();
 
 require_once "../util/login_check.php";
+require_once "../util/save_solved_challenge.php";
 
 checkIfLoggedIn();
 ?>
@@ -28,26 +29,24 @@ checkIfLoggedIn();
 
         <form action="challenge_CSRF.php" method="post">
             <input type="hidden" name="action" value="transfer">
-            <input type="hidden" name="amount" value="9999">
-            <button type="submit">Transfer $9999</button>
+            <input type="hidden" name="amount" value="20">
+            <button type="submit">Transfer &euro; 20</button>
         </form>
 
         <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Check if the user is logged in (you can implement your authentication logic here)
-            if (isset($_SESSION['user_id'])) {
-                if ($_POST['action'] === 'transfer') {
-                    // You should validate and sanitize user input, verify authorization, etc.
-                    // For this example, we will just simulate a response
-                    echo "Transfer initiated. Please wait for confirmation.";
-                } else {
-                    echo "Invalid action.";
+            if ($_POST['action'] === 'transfer') {
+                if ($_POST['amount'] != 20) {
+                    echo '<p class="challenge-solved">Congrats on solving this challenge!</p>';
+                    saveSolvedChallenge(4);
                 }
+
+                echo "Transfer initiated. Please wait for confirmation.";
             } else {
-                echo "You are not logged in.";
+                echo "Invalid action.";
             }
         } else {
-            echo "Invalid request method.";
+            echo "You are not logged in.";
         }
         ?>
         <br><br>
