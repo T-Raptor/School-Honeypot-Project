@@ -41,7 +41,8 @@ if (!$conn) {
     <div class="container">
         <h1>User Profile</h1>
         <p>Enter a user ID to retrieve the user's profile information.</p>
-        <hr <form action="challenge_SQLi.php" method="get">
+        <hr>
+        <form action="challenge_SQLi.php" method="get">
         <label for="id">Enter User ID:</label>
         <input type="text" id="id" name="id" placeholder="e.g., 1" required><br>
         <button type="submit">Retrieve User Info</button>
