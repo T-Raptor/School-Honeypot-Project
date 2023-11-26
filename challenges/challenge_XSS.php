@@ -1,5 +1,7 @@
 <?php
 require_once "../util/login_check.php";
+require_once "../util/save_solved_challenge.php";
+
 checkIfLoggedIn();
 ?>
 
@@ -12,7 +14,7 @@ checkIfLoggedIn();
     <link rel="stylesheet" type="text/css" href="/css/challenges.css">
     <style>
         #queryResult {
-            height: 8rem;
+            min-height: 8rem;
         }
     </style>
 </head>
@@ -32,11 +34,16 @@ checkIfLoggedIn();
             <?php
             if (isset($_GET['query'])) {
                 $query = $_GET['query'];
+                
+                $pattern = '/<(script|iframe|img|body|input|link|div|table|style|svg|marquee|object)[^>]*+>/i';
+                if (preg_match($pattern, $query)) {
+                    echo '<p class="challenge-solved">Congrats on solving this challenge!</p>';
+                    saveSolvedChallenge(2);
+                }
                 echo "<p>Search results for '$query':</p>";
                 echo "<ul>";
-                // Vulnerable code: $query is echoed without proper escaping
                 echo "<li>Result 1: $query</li>";
-                echo "<li>Result 2: Some other result</li>";
+                echo "<li>Result 2: " . htmlspecialchars($query) . "</li>";
                 echo "</ul>";
             }
             ?>
