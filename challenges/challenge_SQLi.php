@@ -28,11 +28,16 @@ if (!$conn) {
     <link rel="stylesheet" type="text/css" href="/css/challenges.css">
     <style>
         #resultUser {
-            height: 9rem;
+            min-height: 9rem;
         }
 
         #resultUser h4 {
-            margin-top: 0;
+            margin-bottom: 0rem;
+        }
+
+        #resultUser p+p {
+            margin-top: 0.5rem;
+            margin-bottom: 2rem;
         }
     </style>
 </head>
@@ -50,21 +55,31 @@ if (!$conn) {
 
         <div id="resultUser">
             <?php
-            $userInput = isset($_GET['id']) ? $_GET['id'] : null;
+            $userInput = $_GET['id'];
 
             if ($userInput !== null && $userInput !== '') {
-                $sql = "SELECT * FROM sql_list WHERE user_id = $userInput";
+                $sql = "SELECT * FROM sql_list WHERE user_id = '" . $userInput . "'";
 
-                $result = $conn->query($sql);
+                try {
+                    $result = $conn->query($sql);
 
-                // Display the results
-                if ($result->num_rows == 1) {
-                    $row = $result->fetch_assoc();
-                    echo "<h4>User $userInput</h4>
-                            <p><b>Username:</b> " . $row['username'] . "</p>
-                            <p><b>Email:</b> " . $row['email'] . "</p>";
-                } else {
-                    echo "<p>User ID not found.</p>";
+                    // Display the results
+                    if ($result && $result->num_rows > 0) {
+                        if ($result->num_rows > 1) {
+                            echo '<p class="solved-challenge">Congrats on solving this challenge!</p>';
+                            saveSolvedChallenge(1);
+                        }
+
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<h4>User " . $row['user_id'] . "</h4>
+                                    <p><b>Username:</b> " . $row['username'] . "</p>
+                                    <p><b>Email:</b> " . $row['email'] . "</p>";
+                        }
+                    } else {
+                        echo "<p>User ID not found.</p>";
+                    }
+                } catch (mysqli_sql_exception $e) {
+                    echo "<p>Invalid input.</p>";
                 }
             }
             // Close the connection
