@@ -39,7 +39,8 @@ $allowed_user_id = 1; // Allow access only for user with ID 1 (for example)
         ?>
             <h2>Welcome to the Restricted Page</h2>
             <p>You are allowed to view this restricted page because you have the authorized user ID:
-                <b><?php echo $allowed_user_id ?></b></p>
+                <b><?php echo $allowed_user_id ?></b>
+            </p>
             <p>This is a restricted area for authorized users only.</p>
             <a href="/challenges.php" class="button-style">Go back to Challenges</a>
         <?php

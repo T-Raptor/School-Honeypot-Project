@@ -1,22 +1,22 @@
 <?php
-    require_once "../util/save_solved_challenge.php";
-    require_once "../util/login_check.php";
+require_once "../util/save_solved_challenge.php";
+require_once "../util/login_check.php";
 
-    checkIfLoggedIn();
+checkIfLoggedIn();
 
-    // Database connection details
-    $servername = "localhost";
-    $username = "sql_user";
-    $password = "tryandsee";
-    $dbname = "sql_database";
+// Database connection details
+$servername = "localhost";
+$username = "sql_user";
+$password = "tryandsee";
+$dbname = "sql_database";
 
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-    // Check the connection
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+// Check the connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 ?>
 
 <!DOCTYPE html>
@@ -30,8 +30,8 @@
         #resultUser {
             height: 9rem;
         }
-        
-        #resultUser h4{
+
+        #resultUser h4 {
             margin-top: 0;
         }
     </style>
@@ -41,12 +41,10 @@
     <div class="container">
         <h1>User Profile</h1>
         <p>Enter a user ID to retrieve the user's profile information.</p>
-        <hr
-
-        <form action="challenge_SQLi.php" method="get">
-            <label for="id">Enter User ID:</label>
-            <input type="text" id="id" name="id" placeholder="e.g., 1" required><br>
-            <button type="submit">Retrieve User Info</button>
+        <hr <form action="challenge_SQLi.php" method="get">
+        <label for="id">Enter User ID:</label>
+        <input type="text" id="id" name="id" placeholder="e.g., 1" required><br>
+        <button type="submit">Retrieve User Info</button>
         </form>
 
         <div id="resultUser">

@@ -1,10 +1,11 @@
 <?php
-    require_once "../util/login_check.php";
-    checkIfLoggedIn();
+require_once "../util/login_check.php";
+checkIfLoggedIn();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>XSS Example</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
@@ -15,6 +16,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>Search Engine</h2>
@@ -43,5 +45,5 @@
         <a href="/challenges.php" class="button-style" style="margin-top: 3rem;">Go back to Challenges</a>
     </div>
 </body>
-</html>
 
+</html>

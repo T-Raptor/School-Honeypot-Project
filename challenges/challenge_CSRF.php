@@ -31,6 +31,7 @@ checkIfLoggedIn();
             <input type="hidden" name="amount" value="9999">
             <button type="submit">Transfer $9999</button>
         </form>
+
         <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Check if the user is logged in (you can implement your authentication logic here)

@@ -17,7 +17,7 @@ checkIfLoggedIn();
         <h2>Broken input</h2>
         <p>WIP 👷‍♂️</p>
         <hr>
-        
+
         <?php
         // Check if the "input" key is set in the $_GET array
         if (isset($_GET['input'])) {
