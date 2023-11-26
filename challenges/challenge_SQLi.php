@@ -66,7 +66,7 @@ if (!$conn) {
                     // Display the results
                     if ($result && $result->num_rows > 0) {
                         if ($result->num_rows > 1) {
-                            echo '<p class="solved-challenge">Congrats on solving this challenge!</p>';
+                            echo '<p class="challenge-solved">Congrats on solving this challenge!</p>';
                             saveSolvedChallenge(1);
                         }
 
