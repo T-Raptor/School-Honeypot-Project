@@ -1,4 +1,4 @@
-const imgbb_api_key = 'ae68f09e0d0cfbc38ee7fad613de005b';
+const imgbb_api_key = '<IMGBB_API_KEY>';
 
 function isValidImageType(file) {
     const allowedTypes = ['image/jpeg', 'image/png', 'image/gif']; // Add more types if needed
